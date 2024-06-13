@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import uz.msi.crmmarketboot.entity.Customer;
 import uz.msi.crmmarketboot.repository.CustomerDao;
@@ -28,6 +29,16 @@ public class CustomerController {
     // request param
     // create method findByUsername with requestParam *!!! to git
     // create method deleteByUsername with pathVariable *!!! to git
+
+    // git add .
+    // git commit -m "some message about your work"
+    // git push origin main
+
+    @ResponseBody
+    @RequestMapping("/username")
+    public Optional<Customer> findByUsername(@RequestParam(value = "username",required = false) String username) {
+        return customerDao.findByUsername(username);
+    }
 
     @ResponseBody
     @RequestMapping("/find-by-id")
