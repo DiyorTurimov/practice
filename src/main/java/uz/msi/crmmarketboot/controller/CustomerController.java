@@ -2,10 +2,7 @@ package uz.msi.crmmarketboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import uz.msi.crmmarketboot.entity.Customer;
 import uz.msi.crmmarketboot.repository.CustomerDao;
 
@@ -40,6 +37,11 @@ public class CustomerController {
         return customerDao.findByUsername(username);
     }
 
+    @ResponseBody
+    @RequestMapping("/delete-by-username/{username}")
+    public Optional<Customer> deleteByUsername(@PathVariable(required = false)  String username   ) {
+        return customerDao.deleteByUsername(username);
+    }
     @ResponseBody
     @RequestMapping("/find-by-id")
     public Optional<Customer> findById(Long id) {

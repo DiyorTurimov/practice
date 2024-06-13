@@ -25,7 +25,7 @@ public enum CustomerQuery {
 
     DELETE_BY_ID("DELETE FROM customers WHERE id = :id"),
 
-    DELETE_BY_USERNAME("DELETE FROM customres WHERE username = :username");
+    DELETE_BY_USERNAME("DELETE FROM customers WHERE username = :username");
 
     private String query;
 

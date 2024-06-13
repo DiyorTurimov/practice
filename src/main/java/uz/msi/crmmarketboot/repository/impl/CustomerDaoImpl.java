@@ -101,8 +101,8 @@ public class CustomerDaoImpl implements CustomerDao {
     @Override
     public Optional<Customer> deleteByUsername(String username) {
         return findByUsername(username).map(customer -> {
-            jdbcTemplate.queryForObject(CustomerQuery.DELETE_BY_USERNAME.getQuery(),
-                    new MapSqlParameterSource().addValue("username", username), customerRowMapper);
+            jdbcTemplate.update(CustomerQuery.DELETE_BY_USERNAME.getQuery(),
+                    new MapSqlParameterSource().addValue("username", username));
             return customer;
         });
     }
